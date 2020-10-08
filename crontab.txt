@@ -1,0 +1,72 @@
+yum -y install vixie-cron
+
+检测cron定时服务是否自启用
+
+systemctl is-enabled crond.service
+enable表示已启用自启动
+disable标识未启用自启动
+
+.如果未启用，则开启cron自启用
+systemctl enable crond.service
+
+如果已经启用，想要cron关闭自启动
+systemctl disable crond.service
+
+
+
+.查看cron服务的启动状态
+systemctl status crond.service
+
+启动cron服务[命令没有提示]
+systemctl start crond.service
+
+.停止cron服务[命令没有提示]
+systemctl stop crond.service
+
+重启cron服务[命令没有提示]
+systemctl restart crond.service
+
+重新加载cron服务[命令没有提示]
+systemctl reload crond.service
+
+---------------------
+cat /etc/crontab 查看系统样本
+
+
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+1  2  *  *  * 每天晚上2点1分执行一次
+1  1  *  *  0 每周日1点一分执行一次
+1  1  6  6  6 6月的7号或6月的每个周六
+1  1  6  *  6 每月的6号或每周6
+*/1  * * * * 每隔一分钟
+* * * * 1-6 周一到周六 每天执行一次
+
+
+
+*代表每次
+
+操作定时任务
+crontab -e
+
+
+查看已编辑的定时任务
+
+crontab -l
+
+删除已编辑的所有定时任务
+crontab -r
+
+
+查看cron执行日志
+tail -f -n 200 /var/log/cron
+
+
+
+
+

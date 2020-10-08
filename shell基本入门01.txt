@@ -1,0 +1,84 @@
+
+shell就是一个程序 C语言编写 既是一种命令语言也是解释性语言 
+
+最里面 kernel 中间 shell  外面 user
+
+
+shell规范
+#!/bin/bash 解释执行脚本环境路径等   #!不是注释 是特例
+#Author 作者
+#Created Time:2020/01/01
+#Script Description：描述
+
+脚本内容****
+
+exit 0 退出脚本
+
+
+运行脚本方法
+1  给与执行权限  chmod 770 文件名
+2  直接给与解释器运行 不需要权限
+
+消除权限后chmod 644 文件名
+执行 bash 文件名 或则 sh文件名**解释环境用什么就用什么
+
+查看当前系统支持的脚本命令
+cat /etc/shells 
+/bin/sh
+/bin/bash
+/usr/bin/sh
+/usr/bin/bash
+/bin/tcsh
+/bin/csh
+----------------特殊符号------------------
+~ 家目录
+
+!! 执行上一次命令
+!p 执行最后一次命令
+！10 执行历史记录中第10条命令
+
+echo $USER 取得变量值
+； 一行中执行多条命令
+\ 转义符
+
+`` 反引号 命令中可以执行命令 echo "today is `date +%F`"   	+%F 完整日期格式，等价于 %Y-%m-%d
+
+| 管道符  cat /etc/passwd | grep "root"
+
+输入到文件
+重定向 一次性输入 会清空之前记录
+echo hehe > 路径文件名
+echo hehe2 >>  路径文件名 追加
+
+输出到页面
+wc < 文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

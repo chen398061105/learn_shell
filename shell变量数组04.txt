@@ -1,0 +1,61 @@
+
+
+本地变量 在家目录下的 .bash_profile .bashrc文件
+全局变量 、/etc/profile /etc/bashrc
+自定义变量  用户自定义变量，脚本文件中
+
+
+建议变量大写 区分命令 
+变量名=值
+
+注意：变量和等号之间不能有空格
+	NAME="xiaoming"  echo "name: $NAME"
+命名规则
+1英文字符数字下划线 首字母不能数字
+2中间不能有空格
+3不能使用标点符号
+4不能使用bash关键字
+
+----------------------------------
+取消变量 unset 变量 生效变量 source 文件路径
+
+定义全局变量 export 变量
+
+
+-----------数组---------------
+定义数组 ARR=('a' 'b' 'c' 'd')
+读出数组 echo ${ARR[1]}
+${数字名称[索引]} 索引从0开始
+
+赋值
+
+ARR[1]="hello"
+ARR[1]
+echo ${#ARR[@]} 统计数组元素个数
+echo ${!ARR[@]} 打印数组的索引
+echo ${ARR[@]}  打印数组的所有元素
+
+echo ${ARR[@：1]}  从第1个下标开始全部打印
+
+echo ${ARR[@：1：2]}  从第1个下标开始打印2个元素
+
+
+
+---关联数组 可以自定义key
+declare -A arr1
+declare -A arr2
+
+arr1[name]='aaa'
+arr2=([name]='11' [age]=11)
+
+echo ${arr1[name]}
+echo ${arr2[name]}
+
+
+
+
+
+
+
+
+

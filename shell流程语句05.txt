@@ -1,0 +1,120 @@
+
+
+数学比较运算 整形
+-eq 等于
+-gt 大于
+-lt 小于
+-ge 大于等于
+-le 小于等于
+-ne 不等于
+如果是浮点数 放大倍数再比较
+
+
+字符运算符
+
+test -d 路径;echo 4？
+    
+-d 判断文件是否存在且为目录
+-f 判断文件是否存在且为文件
+-e 判断文件是否存在文件或者目录都可以
+-r 判断文件是否存在且可读
+-s 且为空文件
+-w 可写
+-x 可执行
+
+字符串比较
+== 等于 
+！= 不等于
+-z 字符长度是否为空
+-n 字符长度是否为0 
+
+------------------------------
+正常单括号
+if [ condition ]  condition为真或假
+ then             那么
+  commands       执行代码
+fi               结束
+
+自动生成模板  这是 零0 不是o  vim /etc/vimrc 最后一行
+autocmd BufNewFile *.sh 0r /myshell/template/config.sh
+
+
+双小括号时候可以做数学运算
+if (( 1+1>2 ));then
+
+双中括号可以在条件中使用通配符号
+for i in r1 r2 r3 cc
+ do
+   if [[ $i == r* ]];then
+    echo $i
+   fi
+done    
+--------------循环
+
+直接
+for var in 1 2 3 4
+ do
+   echo $var
+done
+套入语法
+for var in `seq 1 4`
+ do
+   echo $var
+done
+
+套入单词 字符串
+for var in hello world
+ do 
+  echo "world: $var"
+done
+C写法
+for (( i=1;i<3;i++))
+  do
+   echo $i
+done
+
+
+------case 语法
+
+
+case 变量 in
+ 条件1）
+    执行代码
+ ；；
+ 
+ 条件1）
+    执行代码
+ ；；
+.。。
+esac 结束
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

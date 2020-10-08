@@ -1,0 +1,62 @@
+
+sed命令
+
+本质 行（流）编辑器
+
+常规 vim vi 是文本编辑器  编辑对象是文件
+
+sed行编辑器 编辑对象是文件中的行
+默认修改的是内存中的行内容 不会修改文件中的内容 可以手动修改
+
+语法
+sed [options] '{command}[flag]' [filename]
+command 值得是 常用那些命令
+
+-e script 将脚本指定的命令添加到处理输入是执行的命中  多条件一行中要有多个操作
+-f script 将文件指定命令添加到处理输入时执行的命令中
+-n 抑制自动输出 正常打印会输出2次 加n只会输出一次
+-i 编辑文件内容 sed -i 's/doy/dog/' date.txt  不可逆操作修改源文件
+
+-i.bak 修改时同时创建备份文件
+-r 使用扩展的正则
+! 去翻
+
+常用命令
+a 在匹配后添加  sed 'ahello world' date.txt  第一个字母是命令
+				sed '1a\hello world' date.txt 在第一行加
+				sed '1，2a\hello world' date.txt 在第一行和第二行加
+主要的 在匹配前面加正则
+sed '/5 the/a\hello world' date.txt 
+
+i 在匹配前添加  和a同理
+p 打印
+d 删除
+s 查找替换 sed '/s/dog/cat' data.txt
+c 更改 sed '/3 the/c\he' date.txt  把第三行直接改成he了
+y 转化 和替换一样
+
+
+flags
+数字  表示新文本替换的模式
+g 表示新文本替换现有文本全部
+p 表示打印原始内容
+w filename 将替换的内容写入文件
+
+sed -n '3s/doy/cat/w myfile' date.txt 第三行替换后写入myfile文件
+
+
+
+计算文本一共多少行
+sed -n '$=' date.txt    或者  wc -l date.txt 
+
+
+
+
+
+
+
+
+
+
+
+

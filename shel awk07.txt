@@ -1,0 +1,46 @@
+
+行编辑器。对数据的截取输出
+
+awk [options] [BEGIN] {program} [END] [file]
+
+awk -F : '/正则/{print $0}' 文件
+
+
+常见命令
+-F fs 指定秒回一行数据字段的文件分隔符 默认空格
+awk -F ":" 'NR==1{print $1}' date 打印date文件第一行的字段 以：分开
+awk -F ":" 'NR==1{print $1 “-”$2“-”$2}' date 自定义格式
+awk -F ":" 'NR==1{print "name: "$1,"pwd: "$5 }' date 自定义格式
+-f file 指定读取文件名
+
+-v var=value 定义awk程序中使用的变量和默认值
+
+
+
+
+
+awk 运行优先级
+ begin 在开始处理数据之前执行 可选
+ program 如何处理数据，必选
+ end 处理完数据执行可选
+
+
+默认空格就是一个字段分隔
+
+-----------基本用法  提取功能-----------
+
+对列字段的提取
+
+awk '{print $0}' date1.txt   $0 打印全部
+
+awk '{print $1}' date1.txt  打印第一列 1是指定列
+
+awk '{print $NF}' date1.txt 打印最后一列
+
+
+对行的提取
+awk 'NR==3{print $0}' date1.txt  第三行全部 NR==3
+
+
+
+
